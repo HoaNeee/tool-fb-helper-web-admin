@@ -1,0 +1,11 @@
+@reference "./index.css";
+.admin-table{@apply w-full border-collapse text-left text-sm whitespace-nowrap}
+.admin-table th{@apply border-b bg-muted/40 px-5 py-3 text-xs font-medium text-muted-foreground}
+.admin-table td{@apply border-b px-5 py-4}
+.admin-table tbody tr:last-child td{border-bottom:0}
+.admin-table tbody tr:hover{@apply bg-muted/30}
+.select-control{@apply min-h-9 rounded-lg border border-input bg-card px-3 py-2 text-sm outline-none focus:border-ring focus:ring-3 focus:ring-ring/20}
+.textarea-control{@apply w-full resize-y rounded-lg border border-input bg-transparent p-3 font-mono text-sm leading-6 outline-none focus:border-ring focus:ring-3 focus:ring-ring/20 aria-invalid:border-destructive}
+.field-label{@apply mb-5 flex flex-col gap-2 text-sm font-medium}
+.field-label small{@apply font-mono text-[11px] font-normal text-muted-foreground}
+.dialog-actions{@apply mt-6 flex flex-wrap justify-end gap-3 border-t pt-5}
