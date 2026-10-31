@@ -20,6 +20,7 @@ export default function LoginPage() {
   const [error, setError] = useState<{ title: string; message: string } | null>(
     null,
   );
+  const [loading, setLoading] = useState(false);
 
   const pathName = useLocation().pathname;
 
@@ -41,6 +42,7 @@ export default function LoginPage() {
     const formData = new FormData(formRef.current);
     const username = formData.get("username") as string;
     const password = formData.get("password") as string;
+    setLoading(true);
     try {
       await login(username, password);
     } catch (error) {
@@ -48,12 +50,14 @@ export default function LoginPage() {
         title: "Đăng nhập thất bại",
         message: (error as CustomError).message,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="h-screen w-screen flex justify-center items-center">
-      {authState.loading ? <Loading type="dialog" /> : null}
+      {authState.loading || loading ? <Loading type="dialog" /> : null}
       <form
         ref={formRef}
         onSubmit={(e) => {

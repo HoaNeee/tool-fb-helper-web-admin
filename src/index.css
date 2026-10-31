@@ -2,7 +2,112 @@
 @import "tw-animate-css";
 @import "@fontsource-variable/geist";
 @custom-variant dark (&:is(.dark *));
-:root{font-family:"Geist Variable","Segoe UI",sans-serif;--background:#ffffff;--foreground:#111827;--card:#ffffff;--card-foreground:#111827;--popover:#ffffff;--popover-foreground:#111827;--primary:#3b96ff;--primary-foreground:#ffffff;--secondary:#f3f4f6;--secondary-foreground:#374151;--muted:#f3f4f6;--muted-foreground:#6b7280;--accent:#eff6ff;--accent-foreground:#2563eb;--destructive:#dc2626;--border:#e5e7eb;--input:#e5e7eb;--ring:#3b96ff;--sidebar:#f3f4f6;--radius:.625rem;--bg-btn-primary:var(--primary);color-scheme:light}
-.dark{--background:#18181b;--foreground:#f4f4f5;--card:#18181b;--card-foreground:#f4f4f5;--popover:#27272a;--popover-foreground:#f4f4f5;--primary:#70a8e9;--primary-foreground:#101827;--secondary:#27272a;--secondary-foreground:#f4f4f5;--muted:#27272a;--muted-foreground:#a1a1aa;--accent:#202e43;--accent-foreground:#93c5fd;--destructive:#f87171;--border:#3f3f46;--input:#3f3f46;--ring:#70a8e9;--sidebar:#202023;color-scheme:dark}
-@theme inline{--font-sans:"Geist Variable","Segoe UI",sans-serif;--font-heading:var(--font-sans);--color-background:var(--background);--color-foreground:var(--foreground);--color-card:var(--card);--color-card-foreground:var(--card-foreground);--color-popover:var(--popover);--color-popover-foreground:var(--popover-foreground);--color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);--color-secondary:var(--secondary);--color-secondary-foreground:var(--secondary-foreground);--color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);--color-accent:var(--accent);--color-accent-foreground:var(--accent-foreground);--color-destructive:var(--destructive);--color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);--color-sidebar:var(--sidebar);--radius-sm:calc(var(--radius)*.6);--radius-md:calc(var(--radius)*.8);--radius-lg:var(--radius);--radius-xl:calc(var(--radius)*1.4)}
-@layer base{*{@apply border-border outline-ring/50}body{@apply m-0 bg-background font-sans text-foreground antialiased}button:not(:disabled),[role=switch]:not([data-disabled]){cursor:pointer}button:focus-visible{@apply outline-2 outline-offset-2 outline-ring}*{scrollbar-width:thin;scrollbar-color:var(--border) transparent}}
+:root {
+  font-family: "Geist Variable", "Segoe UI", sans-serif;
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #3b96ff;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #374151;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #eff6ff;
+  --accent-foreground: #2563eb;
+  --destructive: #dc2626;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #3b96ff;
+  --sidebar: #f3f4f6;
+  --radius: 0.625rem;
+  --bg-btn-primary: var(--primary);
+  color-scheme: light;
+}
+.dark {
+  --background: #18181b;
+  --foreground: #f4f4f5;
+  --card: #18181b;
+  --card-foreground: #f4f4f5;
+  --popover: #27272a;
+  --popover-foreground: #f4f4f5;
+  --primary: #70a8e9;
+  --primary-foreground: #101827;
+  --secondary: #27272a;
+  --secondary-foreground: #f4f4f5;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #202e43;
+  --accent-foreground: #93c5fd;
+  --destructive: #f87171;
+  --border: #3f3f46;
+  --input: #3f3f46;
+  --ring: #70a8e9;
+  --sidebar: #202023;
+  color-scheme: dark;
+}
+@theme inline {
+  --font-sans: "Geist Variable", "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply m-0 bg-background font-sans text-foreground antialiased;
+  }
+  button:not(:disabled),
+  [role="switch"]:not([data-disabled]) {
+    cursor: pointer;
+  }
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+}
+
+div[data-slot="toast"][data-type="error"] p[data-slot="toast-description"] {
+  color: oklch(57.7% 0.245 27.325);
+}
+
+div[data-slot="toast"][data-type="success"] p[data-slot="toast-description"] {
+  color: oklch(62.7% 0.194 149.214);
+}
+
+div[data-slot="toast"][data-type="info"] p[data-slot="toast-description"] {
+  color: oklch(54.6% 0.245 262.881);
+}
+
+div[data-slot="toast"][data-type="warning"] p[data-slot="toast-description"] {
+  color: oklch(79.5% 0.184 86.047);
+}
