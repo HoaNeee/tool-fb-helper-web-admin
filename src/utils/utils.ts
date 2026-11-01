@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const MAX_LENGTH_FILE_NAME = 15;
 export type TypeBase64 = {
 	name: string;
@@ -168,7 +169,7 @@ function parseBase64ToBlob(objectBase64: TypeBase64): Blob {
 }
 
 function cloneObject<T>(object: T): T {
-	const clone: unknown = {};
+	const clone: any = {};
 	for (const key in object) {
 		if (object[key] && typeof object[key] === "object") {
 			if (Array.isArray(object[key])) {

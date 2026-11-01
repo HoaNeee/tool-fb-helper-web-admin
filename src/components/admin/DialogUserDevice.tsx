@@ -1,26 +1,25 @@
+import deviceService from "@/services/device-service";
 import type {
 	BaseQueryParams,
 	Device,
 	IDeviceSetting,
 	IPagination,
 } from "@/types/types";
+import { logError } from "@/utils/exception";
+import { debounce } from "lodash";
+import { Monitor, Power } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { Button } from "../ui/button";
 import {
 	Dialog,
-	DialogClose,
 	DialogContent,
 	DialogDescription,
 	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 } from "../ui/dialog";
-import { useCallback, useEffect, useState } from "react";
-import deviceService from "@/services/device-service";
 import Loading from "./Loading";
 import { EmptyState, ListToolbar, Pagination, StatusBadge } from "./shared";
-import { Monitor, Power } from "lucide-react";
-import { Button } from "../ui/button";
-import { handleExceptionGlobal, logError } from "@/utils/exception";
-import { debounce } from "lodash";
 
 interface Props {
 	open: boolean;
@@ -129,7 +128,7 @@ export default function DialogUserDevice({
 			setLoading(true);
 			try {
 				await deviceService.updateStatusDeviceSetting(
-					device?.id,
+					device.id || "",
 					userId,
 					status,
 				);

@@ -1,10 +1,9 @@
 import type {
+	SystemCommentWalkSetting,
+	SystemPostSetting,
 	SystemSetting,
 	SystemToolSetting,
-	SystemPostSetting,
-	SystemCommentWalkSetting,
 } from "@/types/types";
-import type { User } from "@/services/user-service";
 
 // // Initial UI examples only. No API, remote commands or browser persistence.
 // export const initialDevices: Device[] = [

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { KEY_AUTH, KEY_PLATFORM } from "@/constants/constants";
 import { CustomError, type ApiResponseCode } from "./exception";
 import { deleteValueFromStorage, getValueFromLocalStorage } from "./storage";
@@ -34,7 +35,7 @@ async function get(params: string): Promise<ApiResponse> {
 		}
 
 		return res;
-	} catch (error) {
+	} catch (error: any) {
 		handleError(error);
 		throw error;
 	}
@@ -71,7 +72,7 @@ async function post(
 			throw new CustomError(res?.code, res?.message);
 		}
 		return res;
-	} catch (error) {
+	} catch (error: any) {
 		handleError(error);
 		throw error;
 	}
@@ -108,7 +109,7 @@ async function patch(
 			throw new CustomError(res?.code, res?.message);
 		}
 		return res;
-	} catch (error) {
+	} catch (error: any) {
 		handleError(error);
 		throw error;
 	}
@@ -141,7 +142,7 @@ async function del(params: string): Promise<Partial<ApiResponse>> {
 			throw new CustomError(res?.code, res?.message);
 		}
 		return res;
-	} catch (error) {
+	} catch (error: any) {
 		handleError(error);
 		throw error;
 	}
@@ -208,7 +209,7 @@ async function clearAuth() {
 	location.reload();
 }
 
-function handleError(error: CustomError) {
+function handleError(error: any) {
 	if (error.code) {
 		const code = error.code as ApiResponseCode;
 		if (code === "TOKEN_EXPIRED") {

@@ -1,20 +1,20 @@
 import type { UserRole } from "@/services/user-service";
 
 export const userHelper = {
-	isSuperAdmin(role: UserRole) {
+	isSuperAdmin(role: UserRole | null | undefined) {
 		return role === "ROLE_SUPER_ADMIN";
 	},
-	isAdmin(role: UserRole) {
+	isAdmin(role: UserRole | null | undefined) {
 		return role === "ROLE_ADMIN";
 	},
-	isUser(role: UserRole) {
+	isUser(role: UserRole | null | undefined) {
 		return role === "ROLE_USER";
 	},
-	isMember(role: UserRole) {
+	isMember(role: UserRole | null | undefined) {
 		return role === "ROLE_MEMBER";
 	},
 
-	getRoleLabel(role: UserRole) {
+	getRoleLabel(role: UserRole | null | undefined) {
 		switch (role) {
 			case "ROLE_SUPER_ADMIN":
 				return "Quản trị cấp cao";

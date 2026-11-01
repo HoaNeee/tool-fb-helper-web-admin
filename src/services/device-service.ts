@@ -126,7 +126,7 @@ export const deviceService = {
 	},
 
 	async updateStatusDeviceSetting(
-		deviceId: string,
+		deviceId: string | undefined | null,
 		userId: string,
 		status: string,
 	) {
