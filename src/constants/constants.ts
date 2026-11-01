@@ -1,7 +1,9 @@
 const KEY_AUTH = {
-  TOKEN: "AUTH_TOKEN",
-  AUTH: "AUTH",
+	TOKEN: "AUTH_TOKEN",
+	AUTH: "AUTH",
 };
 const KEY_THEME = "FB_ADMIN_THEME";
 
-export { KEY_AUTH, KEY_THEME };
+const KEY_PLATFORM = "ADMIN";
+
+export { KEY_AUTH, KEY_THEME, KEY_PLATFORM };
